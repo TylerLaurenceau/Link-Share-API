@@ -13,5 +13,23 @@ module.exports = {
     })
       .then(user => res.status(201).send(user))
       .catch(error => res.status(400).send(error));
+  },
+
+
+  findAll (req, res) {
+    User.findAll()
+    .then(user => res.status(200).send(user))
+    .catch(error => res.status(400).send(error));
+  },
+
+
+  delete(req, res) {
+    User.destroy({
+    where: {
+      id:req.params.id
+    }
+  })
+  .then(user => res.status(200).send(user))
+  .catch(error => res.status(400).send(error));
   }
 };
