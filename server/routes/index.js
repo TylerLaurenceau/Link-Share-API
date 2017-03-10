@@ -4,6 +4,7 @@
 // Require your controllers here
 const UserController = require("../controllers/user");
 const PostController = require("../controllers/post");
+const CommentController = require("../controllers/comment");
 
 
 
@@ -18,4 +19,7 @@ module.exports = (app) => {
   app.post('/:userid/newPost', PostController.create);
   app.get('/post', PostController.findAll);
   app.delete('/:id/post', PostController.delete);
+
+
+  app.post('/:userid/:postid/newComment', CommentController.create);
 };

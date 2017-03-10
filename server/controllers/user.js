@@ -1,6 +1,7 @@
 const User = require("../models").User;
 const jwt = require('jwt-simple');
 const bcrypt = require('bcryptjs')
+const Comment = require("../models").Comment;
 
 module.exports = {
   register (req, res) {

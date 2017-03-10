@@ -1,5 +1,6 @@
 const Post = require("../models").Post;
 const User = require("../models").User;
+const Comment = require("../models").Comment;
 
 module.exports = {
   create (req, res) {
@@ -8,7 +9,7 @@ module.exports = {
       link: req.body.link,
       userid: req.params.userid
     })
-      .then(user => res.status(201).send(post))
+      .then(post => res.status(201).send(post))
       .catch(error => res.status(400).send(error));
   },
 
