@@ -22,4 +22,5 @@ module.exports = (app) => {
 
 
   app.post('/:userid/:postid/newComment', CommentController.create);
+  app.get('/:id/comment', CommentController.find);
 };
