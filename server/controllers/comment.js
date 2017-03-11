@@ -19,4 +19,14 @@ module.exports = {
     .then(comment => res.status(200).send(comment))
     .catch(error => res.status(400).send(error));
   },
+
+  delete(req, res) {
+    Comment.destroy({
+    where: {
+      id:req.params.id,
+    }
+  })
+  .then(contact => res.status(200).send(contacts))
+  .catch(error => res.status(400).send(error));
+  }
 }
