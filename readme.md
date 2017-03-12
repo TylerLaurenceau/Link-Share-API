@@ -1,7 +1,7 @@
-##Linkshare API Documentation
+#Linkshare API Documentation
 
 
-#USER
+##USER
 ###POST /user/register
 
 Registers a user to the site. Parameters are:
@@ -16,7 +16,7 @@ Allows users to login. Parameters are:
 * Password - String
 
 
-#POST
+##POST
 ###POST /:userid/newPost
 
 Must be Logged In.
@@ -27,7 +27,7 @@ Allows users to create new posts. Parameters are:
 User must be logged in.
 
 
-#COMMENT
+##COMMENT
 ###POST /:userid/:postid/newComment
 
 Must Be Logged In.
