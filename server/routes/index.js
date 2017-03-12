@@ -19,7 +19,6 @@ module.exports = (app) => {
 
   app.post('/:userid/newPost', PostController.create);
   app.get('/post', PostController.findAll);
-  app.delete('/:id/post', PostController.delete);
 
 
   app.post('/:userid/:postid/newComment', CommentController.create);
