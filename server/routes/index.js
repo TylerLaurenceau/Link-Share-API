@@ -12,6 +12,7 @@ module.exports = (app) => {
   // Add your routes here
 
   app.post('/user/register', UserController.register);
+  app.get('/user/login', UserController.login);
   app.get('/user', UserController.findAll);
   app.delete('/:id/user', UserController.delete);
 

@@ -16,7 +16,6 @@ module.exports = {
       .catch(error => res.status(400).send(error));
   },
 
-
   findAll (req, res) {
     User.findAll()
     .then(user => res.status(200).send(user))
@@ -38,24 +37,24 @@ module.exports = {
 login (req, res) {
    User.findOne({
      where: {
-       email: req.body.email
+       username: req.body.username
      }
    })
      .then(user => {
        if (!user) {
-         return res.status(401).send({ message: "No such email or wrong password." });
+         return res.status(401).send({ message: "No such user or wrong password." });
        }
 
        var input = bcrypt.hashSync(req.body.password, user.salt);
        if (input === user.password) {
-         var token = jwt.encode({ id: user.id, name: user.name }, appSecrets.jwtSecret);
+         var token = jwt.encode({ id: user.id, name: user.username }, appSecrets.jwtSecret);
          var json = {
            user: user,
            token: token
          };
          return res.status(200).send(json);
        } else {
-         return res.status(401).send({ message: "No such email or wrong password." });
+         return res.status(401).send({ message: "No such user or wrong password." });
        }
      })
      .catch(error => res.status(400).send(error));
